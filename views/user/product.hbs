@@ -1,0 +1,123 @@
+<div class="container quickView-container">
+	<div class="quickView-content">
+		<div class="row">
+			<div class="col-md-6">
+           
+            <div class="product-gallery product-gallery-vertical">
+              <div class="row">
+                <figure class="product-main-image">
+                  <img id="product-zoom" src="/images/{{product.[0].img.[0]}}" data-zoom-image="/images/{{product.[0].img.[0]}}" alt="product image" >
+ 
+                  <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                    <i class="icon-arrows"></i>
+                  </a>
+                </figure><!-- End .product-main-image -->
+                <div id="product-zoom-gallery" class="product-image-gallery">
+                  <a class="product-gallery-item active" href="#" data-image="/images/{{product.[0].img.[0]}}" data-zoom-image="/images/{{product.[0].img.[0]}}">
+                    <img src="/images/{{product.[0].img.[0]}}" alt="product side">
+                  </a>
+ 
+                  <a class="product-gallery-item" href="#" data-image="/images/{{product.[0].img.[1]}}" data-zoom-image="/images/{{product.[0].img.[1]}}">
+                    <img src="/images/{{product.[0].img.[1]}}" alt="product cross">
+                  </a>
+ 
+                  <a class="product-gallery-item" href="#" data-image="/images/{{product.[0].img.[2]}}" data-zoom-image="/images/{{product.[0].img.[2]}}">
+                    <img src="/images/{{product.[0].img.[2]}}" alt="product with model">
+                  </a>
+ 
+                  <a class="product-gallery-item" href="#" data-image="/images/{{product.[0].img.[3]}}" data-zoom-image="/images/{{product.[0].img.[3]}}">
+                    <img src="/images/{{product.[0].img.[3]}}" alt="product back">
+                  </a>
+                </div><!-- End .product-image-gallery -->
+              </div><!-- End .row -->
+            </div><!-- End .product-gallery -->
+          </div><!-- End .col-md-6 -->
+
+			<div class="col-lg-5 col-md-6">
+				<h2 class="product-title">{{product.[0].productName}}</h2>
+				{{!-- <h3 class="product-price">₹{{product.[0].price}}</h3> --}}
+				{{#if product.[0].biggerDiscount}}
+				<h6 class="new-price">Now ₹{{product.[0].finalPrice}}</h6>
+				<span class="old-price">₹{{product.[0].price}}</span>
+				{{else}}
+				<h3 class="product-price">₹{{product.[0].price}}</h3>
+				{{/if}}
+
+				<div class="ratings-container">
+					<div class="ratings">
+						<div class="ratings-val" style="width: 50%;"></div><!-- End .ratings-val -->
+					</div><!-- End .ratings -->
+					<span class="ratings-text">( 1000 Reviews )</span>
+				</div><!-- End .rating-container -->
+
+				<p class="product-txt ">{{product.[0].productDescription}}</p>
+
+
+				{{!-- <div class="details-filter-row product-nav product-nav-thumbs">
+					<label for="size">color:</label>
+					<a href="#" class="active">
+						<img src="../../../../www.portotheme.com/html/molla/popup/assets/images/demos/demo-6/products/product-1-thumb.html"
+							alt="product desc">
+					</a>
+					<a href="#">
+						<img src="../../../../www.portotheme.com/html/molla/popup/assets/images/demos/demo-6/products/product-1-2-thumb.html"
+							alt="product desc">
+					</a>
+				</div><!-- End .product-nav --> --}}
+
+				<div class="details-filter-row details-row-size">
+					<label for="size">Size:</label>
+					<div class="select-custom">
+						<select name="size" id="size" class="form-control">
+							<option value="#" selected="selected">Select a size</option>
+							<option value="s">Small</option>
+							<option value="m">Medium</option>
+							<option value="l">Large</option>
+							<option value="xl">Extra Large</option>
+						</select>
+					</div><!-- End .select-custom -->
+				</div>
+
+
+				<div class="details-filter-row details-row-size">
+					<label for="qty">Qty:</label>
+					<div class="product-details-quantity">
+						<input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1"
+							data-decimals="0" required>
+					</div><!-- End .product-details-quantity -->
+				</div><!-- End .details-filter-row -->
+
+				<div class="product-details-action">
+					<div class="details-action-wrapper">
+						<a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+						<a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
+					</div><!-- End .details-action-wrapper -->
+					<a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+				</div>
+
+				<div class="product-details-footer">
+					<div class="product-cat">
+						<span>Category:</span>
+						<a href="#">{{product.[0].brand.brand}}</a>,
+						<a href="#">{{product.[0].category.category}}</a>,
+						<a href="#">Blue</a>
+					</div><!-- End .product-cat -->
+
+					<div class="social-icons social-icons-sm">
+						<span class="social-label">Share:</span>
+						<a href="#" class="social-icon" title="Facebook" target="_blank"><i
+								class="icon-facebook-f"></i></a>
+						<a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+						<a href="#" class="social-icon" title="Instagram" target="_blank"><i
+								class="icon-instagram"></i></a>
+						<a href="#" class="social-icon" title="Pinterest" target="_blank"><i
+								class="icon-pinterest"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

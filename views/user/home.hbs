@@ -1,0 +1,459 @@
+<main class="main">
+    <div class="container">
+        <div class="intro-slider-container slider-container-ratio mb-2">
+            <div class="intro-slider owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl"
+                data-owl-options='{"nav": false}'>
+
+                {{#each banners}}
+                <div class="intro-slide">
+                    <figure class="slide-image">
+                        <picture>
+                            <source media="(max-width: 480px)"
+                                srcset="/userassets/images/demos/demo-10/slider/-480w.webp">
+                            <img src="/images/{{this.img.[0]}}" alt="Image Desc">
+                        </picture>
+                    </figure><!-- End .slide-image -->
+
+                    <div class="intro-content">
+                        <h3 class="intro-subtitle">{{this.title}}</h3><!-- End .h3 intro-subtitle -->
+                        <h1 class="intro-title text-white">{{this.subtitle}}</h1><!-- End .intro-title -->
+
+                        <div class="intro-price text-white">from ₹{{this.price}}</div><!-- End .intro-price -->
+
+                        <a href="/shop" class="btn btn-white-primary btn-round">
+                            <span>SHOP NOW</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div><!-- End .intro-content -->
+                </div><!-- End .intro-slide -->
+
+                {{/each}}
+
+            </div><!-- End .intro-slider owl-carousel owl-simple -->
+            <span class="slider-loader"></span><!-- End .slider-loader -->
+        </div><!-- End .intro-slider-container -->
+    </div><!-- End .container -->
+
+    <div class="banner-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="banner banner-overlay">
+                                <a href="#">
+                                    <img src="/userassets/images/demos/demo-10/banners/banner-1.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content banner-content-right">
+                                    <h4 class="banner-subtitle"><a href="#">New Arrivals</a></h4>
+                                    <!-- End .banner-subtitle -->
+                                    <h3 class="banner-title text-white"><a href="#">Bicycles & <br>Mountain Bikes</a>
+                                    </h3><!-- End .banner-title -->
+                                    <a href="#" class="btn btn-outline-white banner-link btn-round">Discover Now</a>
+                                </div><!-- End .banner-content -->
+                            </div><!-- End .banner -->
+                        </div><!-- End .col-sm-6 -->
+
+                        <div class="col-sm-6">
+                            <div class="banner banner-overlay banner-overlay-light">
+                                <a href="#">
+                                    <img src="/userassets/images/demos/demo-10/banners/banner-2.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h4 class="banner-subtitle bright-black"><a href="#">Clearance</a></h4>
+                                    <!-- End .banner-subtitle -->
+                                    <h3 class="banner-title"><a href="#">HRX</a></h3><!-- End .banner-title -->
+                                    <div class="banner-text"><a href="#">up to 70% off</a></div>
+                                    <!-- End .banner-text -->
+                                    <a href="#" class="btn btn-outline-gray banner-link btn-round">Shop Now</a>
+                                </div><!-- End .banner-content -->
+                            </div><!-- End .banner -->
+                        </div><!-- End .col-sm-6 -->
+                    </div><!-- End .row -->
+
+                    <div class="banner banner-large banner-overlay d-none d-sm-block">
+                        <a href="#">
+                            <img src="/userassets/images/demos/demo-10/banners/banner-3.jpg" alt="Banner">
+                        </a>
+
+                        <div class="banner-content">
+                            <h4 class="banner-subtitle text-white"><a href="#">On Sale</a></h4>
+                            <!-- End .banner-subtitle -->
+                            <h3 class="banner-title text-white"><a href="#">Mountain Bikes</a></h3>
+                            <!-- End .banner-title -->
+                            <div class="banner-text text-white"><a href="#">up to 30% off</a></div>
+                            <!-- End .banner-text -->
+                            <a href="#" class="btn btn-outline-white banner-link btn-round">Shop Now</a>
+                        </div><!-- End .banner-content -->
+                    </div><!-- End .banner -->
+                </div><!-- End .col-lg-8 -->
+
+                <div class="col-lg-4 d-sm-none d-lg-block">
+                    <div class="banner banner-middle banner-overlay">
+                        <a href="#">
+                            <img src="/userassets/images/demos/demo-10/banners/banner-4.jpg" alt="Banner">
+                        </a>
+
+                        <div class="banner-content banner-content-bottom">
+                            <h4 class="banner-subtitle text-white"><a href="#">On Sale</a></h4>
+                            <!-- End .banner-subtitle -->
+                            <h3 class="banner-title text-white"><a href="#">Amazing <br>Road Bikes</a></h3>
+                            <!-- End .banner-title -->
+                            <div class="banner-text text-white"><a href="#">from ₹39,000</a></div>
+                            <!-- End .banner-text -->
+                            <a href="#" class="btn btn-outline-white banner-link btn-round">Discover Now</a>
+                        </div><!-- End .banner-content -->
+                    </div><!-- End .banner -->
+                </div><!-- End .col-lg-4 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .banner-group -->
+
+    <div class="icon-boxes-container icon-boxes-separator bg-transparent">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-primary">
+                            <i class="icon-rocket"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">Free Shipping</h3><!-- End .icon-box-title -->
+                            <p>For All Orders</p>
+                        </div><!-- End .icon-box-content -->
+                    </div><!-- End .icon-box -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-primary">
+                            <i class="icon-rotate-left"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">Free Returns</h3><!-- End .icon-box-title -->
+                            <p>Within 30 days</p>
+                        </div><!-- End .icon-box-content -->
+                    </div><!-- End .icon-box -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-primary">
+                            <i class="icon-info-circle"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">Get 20% Off 1 Item</h3><!-- End .icon-box-title -->
+                            <p>when you sign up</p>
+                        </div><!-- End .icon-box-content -->
+                    </div><!-- End .icon-box -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-primary">
+                            <i class="icon-life-ring"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">We Support</h3><!-- End .icon-box-title -->
+                            <p>24/7 amazing services</p>
+                        </div><!-- End .icon-box-content -->
+                    </div><!-- End .icon-box -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .icon-boxes-container -->
+
+
+
+    <!-- shop by brand -->
+
+    <div class="container ">
+        <h2 class=" text-center title-lg mb-5">SHOP BY BRANDS</h2><!-- End .title -->
+        <div class="owl-carousel  mb-5 owl-simple" data-toggle="owl" data-owl-options='{
+                        "nav": false, 
+                        "dots": true,
+                        "margin": 30,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "420": {
+                                "items":3
+                            },
+                            "600": {
+                                "items":4
+                            },
+                            "900": {
+                                "items":5
+                            },
+                            "1024": {
+                                "items":6
+                            },
+                            "1280": {
+                                "items":6,
+                                "nav": true,
+                                "dots": false
+                            }
+                        }
+                    }'>
+            {{#each brands}}
+            <a href="/category/brand/{{this._id}}" class="brand">
+                <img src="/images/{{this.img.[0]}}" style="width:100px;height:100px" alt="Brand Name">
+            </a>
+            {{/each}}
+
+        </div><!-- End .owl-carousel -->
+    </div><!-- End .container -->
+
+
+
+
+
+    <div class="bg-light pt-5 pb-10 mb-3">
+        <div class="container">
+            <div class="heading heading-center mb-3">
+                <h2 class="title-lg">New Arrivals</h2><!-- End .title -->
+
+            </div><!-- End .heading -->
+
+            <div class="tab-content tab-content-carousel">
+                <div class="tab-pane tab-pane-shadow p-0 fade show active" id="new-all-tab" role="tabpanel"
+                    aria-labelledby="new-all-link">
+                    <div class="owl-carousel owl-simple carousel-equal-height" data-toggle="owl" data-owl-options='{
+                                    "nav": false, 
+                                    "dots": true,
+                                    "margin": 0,
+                                    "loop": false,
+                                    "responsive": {
+                                        "0": {
+                                            "items":2
+                                        },
+                                        "480": {
+                                            "items":2
+                                        },
+                                        "768": {
+                                            "items":3
+                                        },
+                                        "992": {
+                                            "items":4
+                                        },
+                                        "1200": {
+                                            "items":4,
+                                            "nav": true
+                                        }
+                                    }
+                                }'>
+
+                        {{!-- {{#each results.products}} --}}
+                        {{#each results.products}}
+
+                        <div class="product product-3 text-center">
+                            <figure class="product-media">
+                                <span class="product-label label-primary">Sale</span>
+                                {{#if this.biggerDiscount}}
+                                <span class="product-label label-sale">{{this.biggerDiscount}}% off</span>
+                                {{else}}
+                                {{!-- <span class="product-label label-sale">30% off</span> --}}
+                                {{/if}}
+
+                                <a href="/quickview/{{this._id}}">
+                                    <img src="/images/{{this.img.[0]}}" alt="Product image" class="product-image">
+                                </a>
+
+                                <div  class="product-action-vertical">
+                                    {{!-- {{#if user}} --}}
+                                    {{#if this.productInWishlist}}
+                                   <span id="{{this._id}}">  <button onclick="removeFromWishlist('{{this._id}}')"
+                                        class="btn-product-icon border-0 btn-wishlist btn-expandable bg-danger "><span>Remove
+                                            From Wishlist</span></button>
+                                            </span>
+                                    {{else}}
+                                   <span id="{{this._id}}"> <button onclick="addToWishlist('{{this._id}}')"
+                                        class="btn-product-icon border-0 btn-wishlist btn-expandable"><span>add to
+                                            wishlist</span></button>
+                                            </span>
+                                    {{/if}}
+                                    
+                                </div><!-- End .product-action-vertical -->
+                            </figure><!-- End .product-media -->
+
+                            <div class="product-body">
+                                <div class="product-cat">
+                                    <a href="#">{{this.brand.brand}}</a>
+                                    {{!-- <a href="#">Boots</a> --}}
+                                </div><!-- End .product-cat -->
+                                <h3 class="product-title"><a href="/product/{{this._id}}">{{this.productName}}</a></h3>
+                                <!-- End .product-title -->
+                                <div class="product-price">
+                                    {{#if this.biggerDiscount}}
+                                    <span class="new-price">Now ₹{{this.finalPrice}}</span>
+                                    <span class="old-price">₹{{this.price}}</span>&nbsp &nbsp &nbsp
+                                    <span class="text-success">{{this.biggerDiscount}}%Off</span>
+                                    {{else}}
+                                    <span class="new-price">₹{{this.price}}</span>
+                                    {{/if}}
+                                </div><!-- End .product-price -->
+                            </div><!-- End .product-body -->
+
+                            <div class="product-footer">
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
+                                    </div><!-- End .ratings -->
+                                    <span class="ratings-text">( 4 Reviews )</span>
+                                </div><!-- End .rating-container -->
+
+                                <div class="product-nav product-nav-dots">
+                                    <a href="#" class="active" style="background: #5f554b;"><span class="sr-only">Color
+                                            name</span></a>
+                                    <a href="#" style="background: #806f55;"><span class="sr-only">Color name</span></a>
+                                </div><!-- End .product-nav -->
+
+                                <div class="product-action">
+
+                                    {{#if this.productInCart}}
+                                   <a href="/cart" class="btn-product btn-cart"><span>Go To Cart</span></a>
+                                    <a href="/quickview/{{this._id}}" class="btn-product "><span> quick view</span></a>
+                                    {{else}}
+
+                                  <span class="{{this._id}}">  <a onclick="addToCart('{{this._id}}')" class="btn-product btn-cart"><span>add
+                                            to cart</span></a></span>
+                                    <a href="/quickview/{{this._id}}" class="btn-product "><span> quick view</span></a>
+                                    {{/if}}
+                                </div><!-- End .product-action -->
+                            </div><!-- End .product-footer -->
+                        </div><!-- End .product -->
+                        {{/each}}
+               
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+<script>
+    function addToCart(proId) {
+
+        Swal.fire({
+            toast: true,
+            icon: 'success',
+            title: 'Item added to cart',
+            
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            width: '300px'
+        }).then((result) => {
+            $.ajax({
+                url: '/add-to-cart/' + proId,
+                method: 'get',
+                success: (response) => {
+                    if (response.status) {
+                        let count = $('#cart-count').html()
+                        count = parseInt(count) + 1
+                        $('#cart-count').html(count)
+
+
+                    }
+                    else{
+                        window.location.href ='/login'
+                    }
+                    console.log('call is coming')
+                    document.getElementsByClassName(proId).innerHTML=` jhefhjwebfiwejifbeji b`
+
+                }
+            })
+
+        })
+    }
+</script>
+<script>
+
+    function addToWishlist(productId) {
+
+        Swal.fire({
+            toast: true,
+            icon: 'success',
+            title: 'Item added to wishlist',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+        }).then((result) => {
+            $.ajax({
+                url: '/add-to-wishlist/' + productId,
+                method: 'get',
+                success: (response) => {
+                    if (response.status) {
+                        let count = $('#wishlist-count').html()
+                        count = parseInt(count) + 1
+                        $('#wishlist-count').html(count)
+                    }else{
+                    window.location.href='/login'
+                }
+
+                    document.getElementById(productId).innerHTML=`<span id="${productId}">  <button onclick="removeFromWishlist('${productId}')"
+                                        class="btn-product-icon border-0 btn-wishlist btn-expandable bg-danger btn-white"><span>Remove
+                                            From Wishlist</span></button>
+                                            </span>`
+                    console.log(response.status)
+                }
+                
+            })
+
+        })
+
+    }
+
+</script>
+
+<script>
+
+    function removeFromWishlist(productId) {
+
+        Swal.fire({
+            toast: true,
+            icon: 'success',
+            title: 'Item removed from wishlist',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+        }).then((result) => {
+            $.ajax({
+                url: '/add-to-wishlist/' + productId,
+                method: 'get',
+                success: (response) => {
+                    if (response.status) {
+                        let count = $('#wishlist-count').html()
+                        count = parseInt(count) + 1
+                        $('#wishlist-count').html(count)
+                    }
+                    document.getElementById(productId).innerHTML=`<span id="${productId}"> <button onclick="addToWishlist('${productId}')"
+                                        class="btn-product-icon border-0 btn-wishlist btn-expandable"><span>add to
+                                            wishlist</span></button>
+                                            </span>`
+                    console.log(response.status)
+                }
+            })
+
+        })
+
+    }
+
+</script>

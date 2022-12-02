@@ -1,0 +1,213 @@
+<section class="content-main">
+    <div class="content-header " >
+        <div>
+            <h2 class="content-title card-title">Order Details</h2>
+            <p>Details for Order ID: {{products.[0]._id}}</p>
+        </div>
+    </div>
+    <div class="card">
+        <header class="card-header">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 mb-lg-0 mb-15">
+                    <span>
+                        <i class="material-icons md-calendar_today"></i> <b>{{total.[0].date}}</b>
+                    </span> <br>
+                    <small class="text-muted">Order ID: {{products.[0]._id}}</small>
+                </div>
+                <div class="col-lg-6 col-md-6 ms-auto text-md-end">
+                    
+                    <button class="btn btn-primary" onclick="invoicePDF()"><i class="bi bi-download"></i>
+                        Download Pdf</button>
+                </div>
+            </div>
+        </header> <!-- card-header end// -->
+        <div class="card-body" >
+            <div class="row mb-50 mt-20 order-info-wrap">
+                <div class="col-md-4">
+                    <article class="icontext align-items-start">
+                        <span class="icon icon-sm rounded-circle bg-primary-light">
+                            <i class="text-primary material-icons md-person"></i>
+                        </span>
+                        <div class="text">
+                            <h6 class="mb-1">Customer</h6>
+                            <p class="mb-1">
+                                {{address.addressDetails.firstName}} &nbsp; {{address.addressDetails.lastName}} <br>
+                                {{address.addressDetails.email}} <br>
+                                {{address.addressDetails.phone}}
+                            </p>
+                            {{!-- <a href="#">View profile</a> --}}
+                        </div>
+                    </article>
+                </div> <!-- col// -->
+                <div class="col-md-4">
+                    <article class="icontext align-items-start">
+                        <span class="icon icon-sm rounded-circle bg-primary-light">
+                            <i class="text-primary material-icons md-local_shipping"></i>
+                        </span>
+                        <div class="text">
+                            <h6 class="mb-1">Order info</h6>
+                            <p class="mb-1">
+                                Shipping: Blue Dart <br> Pay method: {{address.paymentMethod}} <br> Status:
+                                {{address.status}}
+                            </p>
+                            {{!-- <a href="#">Download info</a> --}}
+                        </div>
+                    </article>
+                </div> <!-- col// -->
+                <div class="col-md-4">
+                    <article class="icontext align-items-start">
+                        <span class="icon icon-sm rounded-circle bg-primary-light">
+                            <i class="text-primary material-icons md-place"></i>
+                        </span>
+                        <div class="text">
+                            <h6 class="mb-1">Deliver to</h6>
+                            <p class="mb-1">
+                                House Name/Building No: {{address.addressDetails.address}} <br>
+                                City:{{address.addressDetails.town}} <br>{{address.addressDetails.state}} <br>
+                                {{address.addressDetails.pincode}}
+                            </p>
+                            {{!-- <a href="#">View profile</a> --}}
+                        </div>
+                    </article>
+                </div> <!-- col// -->
+            </div> <!-- row // -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table" id="invoice-table" >
+                            <thead>
+                                <tr>
+                                    <th width="40%">Product</th>
+                                    <th width="20%">Unit Price</th>
+                                    <th width="20%">Quantity</th>
+                                    <th width="20%" class="text-end">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each products}}
+                                <tr>
+                                    <td>
+                                        <a class="itemside" href="#">
+                                            <div class="left">
+                                                <img src="/images/{{this.product.img.[0]}}" width="40" height="40"
+                                                    class="img-xs" alt="Item">
+                                            </div>
+                                            <div class="info"> {{this.product.productName}} </div>
+                                        </a>
+                                    </td>
+                                    <td> {{this.product.price}} </td>
+                                    <td clss="text-center">{{this.quantity}} </td>
+                                    <td class="text-end"> ₹{{this.quantityTotal}} </td>
+                                </tr>
+                                {{/each}}
+
+
+
+                                <tr>
+                                    <td colspan="4">
+                                        <article class="float-end">
+                                            <dl class="dlist">
+                                                <dt>Subtotal:</dt>
+                                                <dd>₹{{total.[0].totalAmount}}</dd>
+                                            </dl>
+                                            <dl class="dlist">
+                                                <dt>Shipping cost:</dt>
+                                                <dd>Free Shipping</dd>
+                                            </dl>
+                                            <dl class="dlist">
+                                                <dt>Grand total:</dt>
+                                                <dd> <b class="h5">₹{{total.[0].totalAmount}}</b> </dd>
+                                            </dl>
+                                            <dl class="dlist">
+                                                <dt class="text-muted">Status:</dt>
+                                                <dd>
+                                                    <span
+                                                        class="badge rounded-pill alert-success text-success">{{address.status}}</span>
+                                                </dd>
+                                            </dl>
+                                        </article>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- table-responsive// -->
+                </div> <!-- col// -->
+                <div class="col-lg-1"></div>
+                {{!-- <div class="col-lg-4">
+                    <div class="box shadow-sm bg-light">
+                        <h6 class="mb-15">Payment info</h6>
+                        <p>
+                            <img src="assets/imgs/card-brands/2.png" class="border" height="20"> Master Card **** ****
+                            4768 <br>
+                            Business name: Grand Market LLC <br>
+                            Phone: +1 (800) 555-154-52
+                        </p>
+                    </div>
+                    <div class="h-25 pt-4">
+                        <div class="mb-3">
+                            <label>Notes</label>
+                            <textarea class="form-control" name="notes" id="notes"
+                                placeholder="Type some note"></textarea>
+                        </div>
+                        <button class="btn btn-primary">Save note</button>
+                    </div>
+                </div> <!-- col// --> --}}
+            </div>
+        </div> <!-- card-body end// -->
+    </div> <!-- card end// -->
+</section> <!-- content-main end// -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+<script type="text/javascript">
+
+    function invoicePDF() {
+        var doc = new jsPDF('p', 'pt', 'letter');
+        var htmlstring = '';
+        var tempVarToCheckPageHeight = 0;
+        var pageHeight = 0;
+        pageHeight = doc.internal.pageSize.height;
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector  
+            '#bypassme': function (element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"  
+                return true
+            }
+        };
+        margins = {
+            top: 150,
+            bottom: 60,
+            left: 40,
+            right: 40,
+            width: 600
+        };
+        var y = 20;
+        doc.setLineWidth(2);
+        doc.text(200, y = y + 30, "Weekly Sales Report");
+        doc.autoTable({
+            html: '#invoice-table',
+            startY: 70,
+            theme: 'grid',
+            columnStyles: {
+                0: {
+                    cellWidth: 180,
+                },
+                1: {
+                    cellWidth: 80,
+                },
+                2: {
+                    cellWidth: 80,
+                },
+                            {{!-- 3: {
+            cellWidth: 80,
+        } --}}
+                        },
+    styles: {
+        minCellHeight: 40
+    }
+                    })
+    doc.save('invoice.pdf');
+                }
+</script>

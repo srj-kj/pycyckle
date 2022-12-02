@@ -1,0 +1,226 @@
+
+   
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Dashboard </h2>
+                    <p>Whole data about your business here</p>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Create report</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">COD REVENUE</h6>
+                                <span>₹{{cod.[0].CodTotal}}</span>
+                                {{!-- <span class="text-sm">
+                                    Shipping fees are not included
+                                </span> --}}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Razorpay Revenue</h6> <span>₹{{razorpay.[0].razorpayTotal}}</span>
+                                {{!-- <span class="text-sm">
+                                    Excluding orders in transit
+                                </span> --}}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Paypal Revenue</h6> <span>₹{{paypal.[0].paypalTotal}}</span>
+                                {{!-- <span class="text-sm">
+                                    In 19 Categories
+                                </span> --}}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-info-light"><i class="text-info material-icons md-shopping_basket"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Total Revenue</h6> <span>₹{{totalRevenue}}</span>
+                                {{!-- <span class="text-sm">
+                                    Based in your local time.
+                                </span> --}}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            {{!-- <div class="row">
+                <div class="col-xl-8 col-lg-12">
+                    <div class="card mb-4">
+                        <article class="card-body">
+                            <h5 class="card-title">Sale statistics</h5>
+                            <canvas id="myChart" width="400"></canvas>
+                        </article>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4 col-lg-12">
+                    <div class="card mb-4">
+                        <article class="card-body">
+                            <h5 class="card-title">Revenue Base on Area</h5>
+                            <canvas id="myChart2" width="400"></canvas>
+                        </article>
+                    </div>
+                    
+                </div>
+
+                
+            </div> --}}
+            
+             <h4 class="text-center mt-3" >Payment Pie-Chart🗓️</h4>
+<div>
+  <canvas id="MyChart" width="400"></canvas>
+</div>
+ <h4 class="text-center mt-3" >Daily Sales Chart🗓️</h4>
+<div>
+ 
+  <canvas id="MyChart2" width="400"></canvas>
+</div>
+<h4 class="text-center mt-3" >Monthly Sales Chart🗓️</h4>
+<div>
+ 
+  <canvas id="MyChart3" width="400"></canvas>
+</div>
+<h4 class="text-center mt-3" >Yearly Sales Chart🗓️</h4>
+<div> 
+ 
+   <canvas id="MyChart4" width="400"></canvas>
+</div>
+        </section> <!-- content-main end// -->
+    </main>
+    
+    {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js" integrity="sha512-tQYZBKe34uzoeOjY9jr3MX7R/mo7n25vnqbnrkskGr4D6YOoPYSpyafUAzQVjV6xAozAqUFIEFsCO4z8mnVBXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    
+
+   
+ 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+<script>
+  const ctx = document.getElementById('MyChart');
+  const config = document.getElementById('MyChart2')
+   const config3 = document.getElementById('MyChart3')
+    const config4 = document.getElementById('MyChart4')
+ 
+ 
+ 
+ 
+ 
+ 
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['COD', 'RAZORPAY PAYMENT', 'PAYAPAL PAYMENT'],
+      datasets: [{
+        label: 'Number of purchase',
+        data: [{{ cod.[0].CodTotal }}, {{ razorpay.[0].razorpayTotal }},{{ paypal.[0].paypalTotal }}],
+    borderWidth: 1
+  }]
+    },
+    options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        min: 0,
+        max: 10,
+      }
+    }
+  }
+  });
+ 
+ 
+  new Chart(config, {
+    type: 'line',
+    data: {
+     
+               
+      labels:  [
+         {{#each getTotalSalesGraph.dailySales}}'{{_id}}',{{/each}}
+     
+      ],
+      datasets: [{
+        label: ' Sales Chart🗓️',
+        data: [{{#each getTotalSalesGraph.dailySales}}'{{totalAmount}}',{{/each}}],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+   
+     },
+     options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    }
+  })
+ 
+ 
+ 
+   new Chart(config3, {
+    type: 'line',
+    data: {
+     
+               
+      labels:  [{{#each getTotalSalesGraph.monthlySales}}'{{_id}}',{{/each}}],
+      datasets: [{
+        label: ' Sales Chart🗓️',
+        data: [{{#each getTotalSalesGraph.monthlySales}}'{{totalAmount}}',{{/each}}],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+   
+     },
+     options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    }
+  })
+ 
+     new Chart(config4, {
+    type: 'line',
+    data: {
+     
+               
+      labels:  [
+        {{#each getTotalSalesGraph.yearlySales}}'{{_id}}',{{/each}} 
+     
+      ],
+      datasets: [{
+        label: 'Sales Chart🗓️',
+       data: [{{#each getTotalSalesGraph.yearlySales}}'{{totalAmount}}',{{/each}}],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+   
+     },
+     options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    }
+  })
+ 
+ 
+</script>

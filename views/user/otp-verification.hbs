@@ -1,0 +1,42 @@
+<main class="main">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav bg-black border-0 mb-0">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                         <li class="breadcrumb-item"><a href="/login">Login</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">OTP Verification</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('/userassets/images/backgrounds/login-bg.jpg')">
+            	<div class="container  mb-1">
+            		<div class="form-box " style="background-color:#D9D9D9;">
+            			<div class="form-tab">
+                            <form action="/login/otpverify" method="post">
+                                            <h3 class="text-center">OTP Verification </h3>
+							    		<div class="form-group">
+											{{#if otpErr}}
+									<p class="text-danger text-center">
+										Invalid OTP
+										</p>
+							        {{/if}}
+							    			<label for="singin-email-2">Enter Your OTP *</label>
+							    			<input type="text" placeholder="Enter 4 digit OTP" class="form-control" id="singin-email-2" name="otp" required>
+							    		</div><!-- End .form-group -->
+
+							    		
+
+							    		<div class="form-footer">
+							    			<button type="submit" href="" class="btn btn-outline-primary-2">
+			                					<span>SUBMIT</span>
+			            						<i class="icon-long-arrow-right"></i>
+			                				</button>
+							    		</div><!-- End .form-footer -->
+							    	</form>
+	            			
+						</div><!-- End .form-tab -->
+            		</div><!-- End .form-box -->
+            	</div><!-- End .container -->
+            </div><!-- End .login-page section-bg -->
+        </main>

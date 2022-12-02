@@ -1,0 +1,269 @@
+<style>
+body {
+            min-height: 100vh;
+            background-size: cover;
+            font-family: 'Lato', sans-serif;
+            color:#445F84;
+            background: linear-gradient(140deg , #fefefe  , #ffffff);    
+
+        }
+        .container-fluid {
+            margin-top: 200px ;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 7px;
+
+        }
+
+        .small {
+            letter-spacing: 0.5px !important;
+        }
+
+        .card-1 {
+            box-shadow: 2px 2px 10px 0px #445F84;
+        }
+
+        hr {
+            background-color: rgba(248, 248, 248, 0.667);
+        }
+
+
+        .bold {
+            font-weight: 500;
+        }
+
+        .change-color {
+            color: #445F84 !important;
+        }
+
+        .card-2 {
+            box-shadow: 1px 1px 3px 0px rgb(112, 115, 139);
+
+        }
+
+        .fa-circle.active {
+            font-size: 8px;
+            color: #445F84;
+        }
+
+        .fa-circle {
+            font-size: 8px;
+            color: #aaa;
+        }
+
+        .rounded {
+            border-radius: 2.25rem !important;
+        }
+
+
+        .progress-bar {
+            background-color: #445F84 !important;
+        }
+
+
+        .progress {
+            height: 5px !important;
+            margin-bottom: 0;
+        }
+
+        .invoice {
+            position: relative;
+            top: -70px;
+        }
+
+        .Glasses {
+            position: relative;
+            top: -12px !important;
+        }
+
+        .card-footer {
+            background-color: #445F84;
+            color: #fff;
+        }
+
+        h2 {
+            color: rgb(78, 0, 92);
+            letter-spacing: 2px !important;
+        }
+
+        .display-3 {
+            font-weight: 500 !important;
+        }
+
+        @media (max-width: 479px) {
+            .invoice {
+                position: relative;
+                top: 7px;
+            }
+
+            .border-line {
+                border-right: 0px solid rgb(226, 206, 226) !important;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            h2 {
+                color: rgb(78, 0, 92);
+                font-size: 17px;
+            }
+
+            .display-3 {
+                font-size: 28px;
+                font-weight: 500 !important;
+            }
+        }
+
+        .card-footer small {
+            letter-spacing: 7px !important;
+            font-size: 12px;
+        }
+
+        .border-line {
+            border-right: 1px solid rgb(226, 206, 226)
+        }
+</style>
+
+
+
+<div class="container-fluid my-5  d-flex  justify-content-center">
+        <div class="card card-1">
+            <div class="card-header bg-white">
+                <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
+                    <div class="col my-auto"> <h4 class="mb-0">Thanks for your Order,<span class="change-color">{{user.name}}</span> !</h4> </div>
+                    <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <a href="/">
+													<h6><span class="fw-bolder h4 text-dark mt-5 p-0">PY<span
+																class="fw-bolder h4  mt-5 p-0" style="color:#088178;">
+																C</span class="text-dark">YCKLE</span></h6>
+												</a>Cycles For Everyone</p>  </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-between mb-3">
+                    <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
+                    <div class="col-auto  "> <small>Receipt Voucher : 1KAU9-84UIL</small> </div>
+                </div>
+                {{#each products}}
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card card-2">
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="sq align-self-center "> <img class="img-fluid img-sm img-thumbnail my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/images/{{this.product.img.[0]}}" width="135" height="135" /> </div>
+                                    <div class="media-body my-auto text-right">
+                                        <div class="row  my-auto flex-column flex-md-row">
+                                            <div class="col my-auto"> <p class="mb-0 text-primary"> {{this.product.productName}}</p>  </div>
+                                            <div class="col-auto my-auto"> <small>{{this.product.brand}} </small></div>
+                                            <div class="col my-auto"> <small>Size : M</small></div>
+                                            <div class="col my-auto"> <small>Qty : {{this.quantity}}</small></div>
+                                            <div class="col my-auto"><h6 class="mb-0">&#8377;{{this.quantityTotal}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-3 ">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3"> <small> Track Order <span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small> </div>
+                                    <div class="col mt-auto">
+                                        {{#if_eq ../address.status 'Delivered'}}
+                                        <div class="progress my-auto"> <div class="progress-bar progress-bar  rounded" style="width: 62%%" role="progressbar" aria-valuenow="100" aria-valuemin="0"  aria-valuemax="100"></div> </div>
+                                        <div class="media row justify-content-between ">
+                                            <div class="col-auto text-right"><span> <small  class="text-right mr-sm-2"></small> <i class="fa fa-circle active"></i> </span></div>
+                                            {{!-- <div class="flex-col"> <span> <small class="text-right mr-sm-2">Out for delivary</small><i class="fa fa-circle active"></i></span></div> --}}
+                                            <div class="col-auto flex-col-auto"><small  class="text-right mr-sm-2">Delivered</small><span> <i  class="fa fa-circle"></i></span></div>
+                                        </div>
+                                        {{else}}
+                                        <div class="progress my-auto"> <div class="progress-bar progress-bar  rounded" style="width: 62%" role="progressbar" aria-valuenow="25" aria-valuemin="0"  aria-valuemax="100"></div> </div>
+                                        <div class="media row justify-content-between ">
+                                            <div class="col-auto text-right"><span> <small  class="text-right mr-sm-2"></small> <i class="fa fa-circle active"></i> </span></div>
+                                            <div class="flex-col"> <span> <small class="text-right mr-sm-2">Out for delivary</small><i class="fa fa-circle active"></i></span></div>
+                                            <div class="col-auto flex-col-auto"><small  class="text-right mr-sm-2">{{../address.status}}</small><span> <i  class="fa fa-circle"></i></span></div>
+                                        </div>
+                                        <button onclick="cancelProduct('{{this._id}}','{{this.item}}')" class="btn btn-primary btn-xs  text-white float-right">Cancel</button>
+
+                                        {{/if_eq}}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="row justify-content-between">
+                            <div class="col-auto"><p class="mb-1 text-dark"><b>Shipping Address Details</b></p></div>
+                            <div class="flex-sm-col text-right col"> <p class="mb-1"><b>Total</b></p> </div>
+                            <div class="flex-sm-col col-auto"> <p class="mb-1">&#8377; {{total.[0].totalAmount}}</p> </div>
+                        </div>
+                        <div class="row justify-content-between">
+                            {{!-- <div class="flex-sm-col text-right col"><p class="mb-1"> <b>Discount</b></p> </div>
+                            <div class="flex-sm-col col-auto"><p class="mb-1">&#8377;150</p></div> --}}
+                        </div>
+                        <div class="row justify-content-between">
+                            {{!-- <div class="flex-sm-col text-right col"><p class="mb-1"><b>GST 18%</b></p></div>
+                            <div class="flex-sm-col col-auto"><p class="mb-1">843</p></div> --}}
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="flex-sm-col text-right col"><p class="mb-1"><b>Delivery Charges</b></p></div>
+                            <div class="flex-sm-col col-auto"><p class="mb-1">Free</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row invoice ">
+                    <div class="col"><p class="mt-3"> Name: {{address.addressDetails.firstName}} &nbsp{{address.addressDetails.lastName}}</p>
+                    <p class="">House Name / Buidingu No : {{address.addressDetails.address}}</p>
+                    <p class="">Town/City:{{address.addressDetails.town}}</p>
+                    <p class="">state:{{address.addressDetails.state}}</p>
+                    <p class="">Pincode:{{address.addressDetails.pincode}}</p>
+                    <p class="">Email:{{address.addressDetails.email}}</p>
+                    <p class="">Contact-Number:{{address.addressDetails.phone}}</p>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="jumbotron-fluid">
+                    <div class="row justify-content-between ">
+                        <div class="col-sm-auto col-auto my-auto"><a href="/">
+													<h6><span class="fw-bolder h4 text-white mt-5 p-0">PY<span
+																class="fw-bolder h4  mt-5 p-0" style="color:#088178;">
+																C</span class="text-wite">YCKLE</span></h6>
+												</a></div>
+                        <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">TOTAL PAID</h2></div>
+                        <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">&#8377; {{total.[0].totalAmount}}</h1></div>
+                    </div>
+                    <div class="row mb-3 mt-3 mt-md-0">
+                        <div class="col-auto border-line"> <small class="text-white">PAN:AA02hDW7E</small></div>
+                        <div class="col-auto border-line"> <small class="text-white">CIN:UMMC20PTC </small></div>
+                        <div class="col-auto "><small class="text-white">GSTN:268FD07EXX </small> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function cancelProduct(orderId,productId){
+        console.log(orderId,productId);
+        $.ajax({
+            url:'/orders/cancel/order/' ,
+            data:{
+                orderId: orderId,
+                productId: productId
+            },
+            method:'post',
+            success(response){
+                response.status
+            }
+        })
+    }
+</script>

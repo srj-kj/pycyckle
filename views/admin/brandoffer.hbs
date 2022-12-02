@@ -1,0 +1,155 @@
+<table class="table mt-3">
+    <thead class="text-center">
+        <tr>
+            <th class="text-dark" scope="col">#</th>
+            <th class="text-dark" scope="col">Brand</th>
+
+           
+            <th class="text-dark" scope="col">image</th>
+            <th class="text-dark" scope="col">offerpercentage</th>
+            <th class="text-dark" scope="col">offer</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        {{#each brands}}
+        <tr>
+            <th class="text-dark" scope="row">
+
+                {{inc @index}}
+
+            </th>
+            <td class="text-dark">{{this.brand}}</td>
+
+
+           
+            <td><img style="width:50px;height:50px;" src="/images/{{this.img.[0]}}" alt=""></td>
+            {{#if this.brandOffer}}
+            <td class="text-dark">{{this.brandOffer}}%</td>
+            {{else}}
+            <td class="text-dark">0%</td>
+            {{/if}}
+            
+
+
+            <td>
+                {{!-- <a class="btn btn-outline-primary" onclick="offe('{{this._id}}')">add offer</a> --}}
+
+
+                {{#if brandOffer}}
+                <button class="btn btn-outline-danger text-dark mt-2" onclick="deleteOffer('{{this._id}}')">delete</button>
+
+                {{else}}
+                <div class="accordion mt-2 w-50" id="accordionExample" >
+                    <div class="accordion-item  text-dark" style="background-color:#088178 ;">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button btn-primary btn-xs  text-dark" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne{{this._id}}" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Add Offer
+                            </button>
+                        </h2>
+                        <div id="collapseOne{{this._id}}" class="accordion-collapse collapse "
+                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                                <form id="add-offer">
+
+                                    <div class="col-12">
+                                        <label for="yourUsername" class="form-label">Enter offer percentage</label>
+                                        <div class="input-group has-validation">
+
+                                            <input type="text" name="percentage" class="form-control" required>
+                                        </div>
+                                        <div>
+                                            <input type="text" name="brandId" id="" value="{{this._id}}" hidden>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary  " type="submit">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+
+
+
+
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+
+    $("#add-offer").submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/admin/brand/offers',
+            type: 'post',
+            data: $('#add-offer').serialize(),
+
+
+            success: (response) => {
+                if (response.status) {
+                    Swal.fire({
+                        imageUrl: 'https://cdn.dribbble.com/users/2613050/screenshots/7347945/discount_logo.gif',
+                        imageHeight: 300,
+                        imageAlt: 'A tall image'
+                    }).then(() => {
+                        location.reload()
+                    })
+                }
+            }
+        })
+    })
+
+</script>
+
+
+<script>
+    function deleteOffer(brandId){
+        console.log('helloo')
+        Swal.fire({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+     $.ajax({
+        url:'/admin/delete/brand/offers/'+brandId,
+        method:'get',
+        success:(response)=>{
+          if(response.status){
+            
+            Swal.fire("Poof! Your imaginary file has been deleted!", {
+      icon: "success",
+    }).then(()=>{
+      location.reload()
+    })
+          }
+             
+        }
+      })
+    
+  } 
+});
+ 
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

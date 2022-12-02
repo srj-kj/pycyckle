@@ -1,0 +1,222 @@
+
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Banner </h2>
+                    <p>Banner management</p>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBanner">
+                    <i class="text-muted material-icons md-post_add"></i> Add New Banner
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <header class="card-header">
+                    <div class="row gx-3">
+                        <div class="col-lg-4 mb-lg-0 mb-15 me-auto">
+                            <input type="text" placeholder="Search..." class="form-control">
+                        </div>
+                        <div class="col-lg-2 col-6">
+                            <input type="date" class="form-control" name="">
+                        </div>
+                    </div>
+                </header> <!-- card-header end// -->
+                <div class="card-body">
+                    <div class="row gx-12">
+                        {{#each banners}}
+                        <div class="  col-md-3 col-6">
+                            <figure class="card border-1">
+                                <div class="card-header bg-white text-center">
+                                    <img height="100" src="/images/{{this.img.[0]}}" class="img-fluid" alt="Logo">
+                                </div>
+                                <figcaption class="card-body text-center">
+                                    <h6 class="card-title m-0">{{this.title}}</h6>
+                                    <p class="card-title m-0">{{this.subtitle}}</p>
+                                    <p class="card-title m-0">{{this.price}}</p>
+                                     <a href="/admin/edit-banner/{{this._id}}" class="btn btn-xs  "> Edit </a>
+                                    <a href="/admin/delete-banner/{{this._id}}" class="btn btn-xs btn-danger  "> Delete </a>
+                                </figcaption>
+                            </figure>
+                        </div> <!-- col.// -->
+                        {{/each}}
+                    </div> <!-- row.// -->
+                </div> <!-- card-body end// -->
+            </div> <!-- card end// -->
+        </section> <!-- content-main end// -->
+        
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-brands.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:49 GMT -->
+
+{{!-- ---------------------------add banner----------------- --}}
+
+<div class="modal fade" id="addBanner" tabindex="-1" aria-labelledby="addBannerLabel" aria-hidden="true">
+    <form action="/admin/add-banner" method="post" enctype="multipart/form-data">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addBannerLabel">Banner Management</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="content-main">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Banner</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>1. General info</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Banner title</label>
+                                        <input type="text"name='title' placeholder="Type here" class="form-control">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Description</label>
+                                        <input type="text"name='subtitle' placeholder="Type here" class="form-control">
+
+                                    </div>
+                                    
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>2. Pricing</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Cost in INR</label>
+                                        <input type="text"name='price' placeholder="₹00.0" class="form-control">
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                           
+                            <hr class=" mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>4. Media</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mt-0">
+                                        <label class="form-label">Images</label>
+                                       <img src="/adminassets/imgs/theme/upload.svg" id="imgView" alt="" style="width:100px; height:100px;" >
+                                        <input name="image" onchange="viewImage(event)" class="" type="file" id="gallery-photo-add" multiple="multiple" required>
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- .row end// -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Add Banner</button>
+      </div>
+      </div>
+      </form>
+    </div>
+
+
+
+    {{!-- --------------------edit banner-------------------------- --}}
+
+            {{!-- <div class="modal fade" id="editBanner" tabindex="-1" aria-labelledby="editBannerLabel" aria-hidden="true">
+    <form action="/admin/edit-banner/{{banner._id}}" method="post" enctype="multipart/form-data">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editBannerLabel">Product Management</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="content-main">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Product</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>1. General info</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Banner title</label>
+                                        <input type="text"name='title' placeholder="Type here" class="form-control">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Description</label>
+                                        <input type="text"name='subtitle' placeholder="Type here" class="form-control">
+
+                                    </div>
+                                    
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>2. Pricing</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Cost in INR</label>
+                                        <input type="text"name='price' placeholder="₹00.0" class="form-control">
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                           
+                            <hr class=" mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>4. Media</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mt-0">
+                                        <label class="form-label">Images</label>
+                                       <img src="/adminassets/imgs/theme/upload.svg" id="imgView" alt="" style="width:100px; height:100px;" >
+                                        <input name="image" onchange="viewImage(event)" class="" type="file" id="gallery-photo-add" multiple="multiple" required>
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- .row end// -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Edit Banner</button>
+      </div>
+      </div>
+      </form>
+    </div> --}}
+
+
+    <script>
+function viewImage(event){
+document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+               }
+</script>

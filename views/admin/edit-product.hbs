@@ -1,0 +1,118 @@
+<div class="content-main">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <div class="content-header">
+                        <h2 class="content-title">Edit Product</h2>
+                    </div>
+                </div>
+            </div>
+            <form action="/admin/edit-product/{{product.[0]._id}}" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>1. General info</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Product title</label>
+                                        <input type="text"name='productName' placeholder="Type here" class="form-control" value="{{product.[0].productName}}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Description</label>
+                                        <input placeholder="Type here" name="productDescription" class="form-control" value="{{product.[0].productDescription}}" rows="4"></input>
+                                    </div>
+                                     {{!-- <div class="mb-4">
+                                        <label class="form-label">Brand name</label>
+                                        <select name="brand" class="form-select"  value="HJSAHJASJHSHA">
+                                    
+                                            <option class="text-dark" value="{{product.[0].brand._id}}"> {{product.[0].brand.brand}} </option>
+                                        
+                                        </select>
+                                    </div> --}}
+                                   <div class="mb-4">
+                                        <label class="form-label">Brand name</label>
+                                        <select name="brand" class="form-select" onmouseenter="branded()">
+                                            <option id="brand" class="text-dark" value="{{product.[0].brand._id}}"> {{product.[0].brand.brand}}  </option>
+                                            {{#each brands}}
+                                            
+                                            <option class="text-dark" value="{{this._id}}"> {{this.brand}} </option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>2. Pricing</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Cost in INR</label>
+                                        <input type="text"name='price' placeholder="$00.0" value="{{product.[0].price}}" class="form-control">
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>3. Category</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="mb-2 form-check form-check-inline" style="width: 45%;">
+                                        <input class="form-check-input" value="{{product.[0].category._id}}"  name="category" type="radio" checked>
+                                            <span class="form-check-label">{{product.[0].category.category}}</span> 
+                                            </label>
+                                        {{#each cate}}
+                                        <label class="mb-2 form-check form-check-inline" style="width: 45%;">
+                                            <input class="form-check-input" value="{{this._id}}"  name="category" type="radio">
+                                            <span class="form-check-label"> {{this.category}}</span> 
+                                        </label>
+                                        
+                                        {{/each}}
+                                    </div>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                            <hr class="mb-4 mt-0">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>4. Media</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mb-4">
+                                        <label class="form-label">Images</label>
+                                        <img src="/images/{{product.[0].img.[0]}}" id="imgView" alt="" style="width:100px; height:100px;" >
+                                        <img src="/images/{{product.[0].img.[1]}}" id="imgView" alt="" style="width:100px; height:100px;" >
+                                        <img src="/images/{{product.[0].img.[2]}}" id="imgView" alt="" style="width:100px; height:100px;" >
+                                        <img src="/images/{{product.[0].img.[3]}}" id="imgView" alt="" style="width:100px; height:100px;" >
+                                        <input name="image" onchange="viewImage(event)" class="form-control" type="file" multiple="multiple">
+                                    </div>
+                                    <button type="submit"  class="btn btn-primary btn-xs ">Edit Product</button>
+                                </div> <!-- col.// -->
+                                
+        
+                            </div> <!-- .row end// -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+
+
+            <script>
+               function viewImage(event){
+                document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+               }
+              
+            </script>
+            <script>
+                 function branded(){
+                document.getElementById('brand').style.display='none';
+               }
+            </script>

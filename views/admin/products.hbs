@@ -1,0 +1,285 @@
+<section class="content-main">
+    <div class="content-header">
+        <div>
+            <h2 class="content-title card-title">Product Management</h2>
+            </h2>
+            <p>Product Details is here</p>
+        </div>
+        <div>
+            {{!-- <a href="#" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Add New
+                Product</a> --}}
+            {{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductLong">
+                Add New Product
+            </button> --}}
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">
+                <i class="text-muted material-icons md-post_add"></i> Add New Product
+            </button>
+        </div>
+    </div>
+    <div class="row container-fluid  a">
+        <div class="col-md-12">
+            <div class="card-fluid mb-4 ">
+                <header class="card-header">
+                    <div class="row gx-3">
+                        <div class="col-lg-4 col-md-6 me-auto">
+                            <input type="text" placeholder="Search..." class="form-control">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6">
+                            <select class="form-select">
+                                <option>Status</option>
+                                <option>Active</option>
+                                <option>Disabled</option>
+                                <option>Show all</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6">
+                            <select class="form-select">
+                                <option>Show 20</option>
+                                <option>Show 30</option>
+                                <option>Show 40</option>
+                            </select>
+                        </div>
+                    </div>
+                </header> <!-- card-header end// -->
+                <div class="card-body align-items-center text-center">
+                    <div class="table-responsive align-items-center">
+                        <table class="table table-hover align-items-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl.No</th>
+                                    <th>Image</th>
+                                    <th scope="col">Name</th>
+
+                                    <th scope="col">Brand</th>
+                                    <th scope="col">Category</th>
+                                    {{!-- <th scope="col">Sub Category</th> --}}
+                                    <th scope="col">Price</th>
+
+                                    <th scope="col">Action</th>
+                                    {{!-- <th class="text-end"> Action </th> --}}
+                                </tr>
+                            </thead>
+                            <tbody class="align-items-center tex-center">
+
+                                {{#each products}}
+                                <tr class="align-items-center">
+                                    <th scope="row">{{inc @index}}</th>
+                                    <td><img src="/images/{{this.img.[0]}}" class="img-sm img-thumbnail zoom_05"
+                                            data-zoom-image="/images/{{this.img.[0]}}" alt=""></td>
+
+                                    <td>
+                                        <h6>{{this.productName}}</h6>
+                                    </td>
+
+                                    <td>{{this.brand.brand}}</td>
+
+                                    <td>{{this.category.category}}</td>
+                                    {{!-- <td>{{this.subcategory}}</td> --}}
+                                    <td><span>₹{{this.price}}</span></td>
+                                    <td>
+                                        <a href="/admin/edit-product/{{this._id}}"
+                                            class="btn btn-warning btn-xs">Edit</a>
+
+                                        <button type="submit" onclick=" deleteProduct('{{this._id}}')"
+                                            class="btn btn-danger btn-xs">Delete</button>
+                                    </td>
+                                </tr>
+
+                                {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div> <!-- table-responsive //end -->
+                </div> <!-- card-body end// -->
+            </div> <!-- card end// -->
+        </div>
+
+    </div>
+    {{!-- <div class="pagination-area mt-15 mb-50">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-start">
+                <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">16</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div> --}}
+</section>
+
+{{!-- ---------------------Add products ------------------- --}}
+
+<div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
+    <form action="/admin/addProduct" method="post" enctype="multipart/form-data">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addProductLabel">Product Management</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-main">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <div class="content-header">
+                                    <h2 class="content-title">Add New Product</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h6>1. General info</h6>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="mb-4">
+                                                    <label class="form-label">Product title</label>
+                                                    <input type="text" name='productName' placeholder="Type here"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label class="form-label">Description</label>
+                                                    <textarea placeholder="Type here" name="productDescription"
+                                                        class="form-control" rows="4"></textarea>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label class="form-label">Brand name</label>
+                                                    <select name="brand" class="form-select">
+                                                        {{#each brands}}
+                                                        <option class="text-dark" value="{{this._id}}"> {{this.brand}}
+                                                        </option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div> <!-- col.// -->
+                                        </div> <!-- row.// -->
+                                        <hr class="mb-4 mt-0">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h6>2. Pricing</h6>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="mb-4">
+                                                    <label class="form-label">Cost in INR</label>
+                                                    <input type="text" name='price' placeholder="₹00.0"
+                                                        class="form-control">
+                                                </div>
+                                            </div> <!-- col.// -->
+                                        </div> <!-- row.// -->
+                                        <hr class="mb-4 mt-0">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h6>3. Category</h6>
+                                            </div>
+                                            <div class="col-md-9">
+
+                                                <div class="mb-4">
+                                                    {{#each categories}}
+                                                    <label class="mb-2 form-check form-check-inline"
+                                                        style="width: 45%;">
+                                                        <input class="form-check-input" value="{{this._id}}"
+                                                            name="category" type="radio">
+                                                        <span class="form-check-label"> {{this.category}}</span> </span>
+                                                    </label>
+
+                                                    {{/each}}
+                                                </div>
+                                            </div> <!-- col.// -->
+                                        </div> <!-- row.// -->
+                                        <hr class=" mt-0">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h6>4. Media</h6>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="mt-0">
+                                                    <label class="form-label">Images</label>
+                                                    <img src="/adminassets/imgs/theme/upload.svg" id="imgView" alt=""
+                                                        style="width:100px; height:100px;">
+                                                    <input name="image" onchange="viewImage(event)" class="" type="file"
+                                                        id="gallery-photo-add" multiple="multiple" required>
+                                                </div>
+                                            </div> <!-- col.// -->
+                                        </div> <!-- .row end// -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                </div>
+            </div>
+    </form>
+</div>
+</div>
+</div>
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
+
+<script>
+
+    function deleteProduct(proId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+
+                )
+                $.ajax({
+                    url: "/admin/delete-product/" + proId,
+                    method: "DELETE",
+                    success: (response) => {
+                        if (response.status) {
+                            window.location.reload();
+                        }
+                    }
+                })
+            }
+        })
+    }
+
+</script>
+
+
+{{!-- 
+<script src="/javascripts/jquery.ez-plus.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script> --}}
+
+
+
+{{!-- <script>
+    $('.zoom_05').ezPlus({
+        zoomType: 'inner',
+        cursor: 'crosshair'
+    }
+    );
+</script> --}}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

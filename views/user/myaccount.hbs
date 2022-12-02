@@ -1,0 +1,666 @@
+<style>
+	{
+			{
+			!-- .container {
+				border-radius: 10px;
+				padding: 0 2px;
+				margin: 150px auto;
+				position: relative;
+				height: 400px
+			}
+
+			#left {
+				position: relative
+			}
+
+			--
+		}
+	}
+
+
+
+
+
+	#image-section {
+		position: relative
+	}
+
+	#image-section img {
+		width: 350px;
+		height: 200px;
+		border-radius: 10px;
+		position: absolute;
+		left: 15%;
+		top: -100px
+	}
+
+	#coupon {
+		transform: rotate(-90deg);
+		position: absolute;
+		left: -30px;
+		bottom: 15%;
+		color: #000080;
+		font-weight: bold
+	}
+
+	.brand {
+		padding-top: 150px;
+		padding-left: 150px;
+		padding-bottom: 10px;
+		position: relative
+	}
+
+	.brand h1 {
+		font-weight: bolder;
+		color: #000080
+	}
+
+	#validity {
+		position: absolute;
+		width: 100%;
+		bottom: -110px
+	}
+
+	.row {
+		height: 100%
+	}
+
+	#line {
+		background-color: #a0a0af;
+		clip-path: polygon(59% 0, 68% 0, 8% 100%, 0% 100%);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0
+	}
+
+	#offer {
+		color: #000080;
+		text-align: center;
+		font-weight: bold
+	}
+
+	#offer-description {
+		padding-top: 20px
+	}
+
+	#offer-description p {
+		text-align: center;
+		margin: 2px;
+		font-weight: bold
+	}
+
+	.btn {
+		border: 1px solid #ddd
+	}
+
+	.btn:last-child {
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px
+	}
+
+	.btn:nth-child(2) {
+		border-radius: 0px;
+		border-left: none;
+		border-right: none
+	}
+
+	.btn:first-child {
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 0px
+	}
+
+	.btn:hover {
+		color: #fff;
+		background-color: #000080
+	}
+
+	#code {
+		font-size: 2rem;
+		font-weight: 600
+	}
+
+	#expiry {
+		display: none
+	}
+
+	.radius-15 {
+		border-radius: 15px;
+	}
+
+	.card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		word-wrap: break-word;
+		background-color: #fff;
+		background-clip: border-box;
+		border: 0px solid rgba(0, 0, 0, 0);
+		border-radius: .25rem;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+	}
+
+	element.style {}
+
+	.list-inline-item:not(:last-child) {
+		margin-right: .5rem;
+	}
+
+	.contacts-social a {
+		font-size: 16px;
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		background: #ffffff;
+		border: 1px solid #eeecec;
+		text-align: center;
+		border-radius: 50%;
+		color: #2b2a2a;
+	}
+
+	.bg-facebook {
+		background-color: #3b5998 !important;
+	}
+
+	.bg-twitter {
+		background-color: #55acee !important;
+	}
+
+	.bg-linkedin {
+		background-color: #0976b4 !important;
+	}
+
+	.content {
+
+		z-index: 10;
+	}
+
+	.logo {
+
+		margin-bottom: 50px;
+	}
+
+
+	.off {
+
+		line-height: 0px;
+	}
+
+	.off h1 {
+
+		font-size: 80px;
+	}
+
+	.off span {
+
+		margin-right: 111px;
+	}
+
+
+	.plus {
+		font-size: 23px;
+	}
+
+	.code {
+
+		text-transform: uppercase;
+		padding: 10px;
+		background-color: #fff;
+		color: red;
+		font-size: 20px;
+	}
+
+	.cross-bg {
+
+		height: 95%;
+		width: 100%;
+		position: absolute;
+
+		background-color: #9C27B0;
+
+		left: 0px;
+		top: 0px;
+		opacity: 0.4;
+		clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+		z-index: 0;
+	}
+
+	.wrapper {
+
+		height: 100vh;
+	}
+
+	.card {
+
+		position: relative;
+		background-color: #7997cb;
+		padding: 10px;
+		width: 500px;
+		border: none;
+
+
+	}
+</style>
+
+
+<main class="main">
+	<div class="page-header text-center" style="background-image: url('/userassets/images/page-header-bg.jpg')">
+		<div class="container">
+			<h1 class="page-title">My Account<span>Shop</span></h1>
+		</div><!-- End .container -->
+	</div><!-- End .page-header -->
+	<nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+		<div class="container">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="#">Shop</a></li>
+				<li class="breadcrumb-item active" aria-current="page">My Account</li>
+			</ol>
+		</div><!-- End .container -->
+	</nav><!-- End .breadcrumb-nav -->
+
+	<div class="page-content">
+		<div class="dashboard">
+			<div class="container">
+				<div class="row">
+					<aside class="col-md-4 col-lg-3">
+						<ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="tab-dashboard-link" data-toggle="tab"
+									href="#tab-dashboard" role="tab" aria-controls="tab-dashboard"
+									aria-selected="true">Dashboard</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab"
+									aria-controls="tab-orders" aria-selected="false">Wallet</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" id="tab-address-link" data-toggle="tab" href="#tab-address"
+									role="tab" aria-controls="tab-address" aria-selected="false">Adresses</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account"
+									role="tab" aria-controls="tab-account" aria-selected="false">Account Details</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-downloads-link" data-toggle="tab" href="#tab-downloads"
+									role="tab" aria-controls="tab-downloads" aria-selected="false">Invite and Earn</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Sign Out</a>
+							</li>
+						</ul>
+					</aside><!-- End .col-lg-3 -->
+
+					<div class="col-md-8 col-lg-9">
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel"
+								aria-labelledby="tab-dashboard-link">
+								<p>Hello <span class="font-weight-normal text-dark">{{user.name}}</span> (not <span
+										class="font-weight-normal text-dark">{{user.name}}</span>? <a href="#">Log
+										out</a>)
+									<br>
+									From your account dashboard you can view your <a href="#tab-orders"
+										class="tab-trigger-link link-underline">Wallet</a>, manage your <a
+										href="#tab-address" class="tab-trigger-link">shipping and billing addresses</a>,
+									and <a href="#tab-account" class="tab-trigger-link">edit your password and account
+										details</a>.
+								</p>
+							</div><!-- .End .tab-pane -->
+
+							<div class="tab-pane fade" id="tab-orders" role="tabpanel"
+								aria-labelledby="tab-orders-link">
+
+
+								<div class="container bg-white">
+									<div class="row">
+										<div class="col-md-6">
+											<div id="left">
+												{{!-- <div id="image-section"> <img
+														src="https://i.imgur.com/CtL3oQp.jpg" class="mt-5 rounded"
+														alt=""> </div>
+												<div class="brand">
+													<div id="coupon">
+														<div class="h4 text-uppercase">wallet</div>
+													</div>
+													<h1 class="text-uppercase text-primary">PYCYCKLE</h1>
+													<h1 class="text-uppercase pl-md-4 pl-sm-2">WALLET</h1>
+												</div> --}}
+
+												<div class="col">
+													<div class="card radius-15">
+														<div class="card-body text-center">
+															<div class="p-4 border radius-15">
+																<img src="https://bootdey.com/img/Content/avatar/avatar7.png"
+																	width="110" height="110"
+																	class="rounded-circle shadow" alt="">
+																<h5 class="mb-0 mt-5">{{user.name}}</h5>
+																<p class="mt-2 text-white">Phone:{{user.phone}}</p>
+																<p class="mt-2 text-white">email:{{user.email}}</p>
+																<p class="h4">Wallet Balance:{{wallet.balance}}</p>
+																<div class="list-inline contacts-social mt-3 mb-3"> <a
+																		href="javascript:;"
+																		class="list-inline-item bg-facebook text-white border-0"><i
+																			class="bx bxl-facebook"></i></a>
+																	<a href="javascript:;"
+																		class="list-inline-item bg-twitter text-white border-0"><i
+																			class="bx bxl-twitter"></i></a>
+																	<a href="javascript:;"
+																		class="list-inline-item bg-linkedin text-white border-0"><i
+																			class="bx bxl-linkedin"></i></a>
+																</div>
+																<div class="d-grid"> <a href="/shop"
+																		class="btn btn-outline-primary radius-15">Shop
+																		with Balance</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div id="line"></div>
+										</div>
+
+									</div>
+								</div>
+
+
+
+
+							</div><!-- .End .tab-pane -->
+
+							<div class="tab-pane fade" id="tab-downloads" role="tabpanel"
+								aria-labelledby="tab-downloads-link">
+								<div class="wrapper col-md-12">
+
+									<div class="card col-md-10">
+
+
+										<div class="cross-bg">
+
+										</div>
+
+										<div class="content">
+
+											<div class="logo text-left">
+												<a href="/">
+													<h6><span class="fw-bolder h4 text-white mt-5 p-0">PY<span
+																class="fw-bolder h4  mt-5 p-0" style="color:#088178;">
+																C</span class="text-white">YCKLE</span></h6>
+												</a>
+
+											</div>
+
+											<div class="text-center text-uppercase text-white off">
+
+
+												<span>Get</span>
+												<h1 class="mt-0">100</h1>
+
+											</div>
+
+											<div class="text-center text-white">
+
+												<span class="plus">On</span>
+
+											</div>
+
+
+											<div class="text-center  text-white">
+
+
+
+												<h6 class="m-0">Each successfull Referral</h6>
+
+											</div>
+
+
+											{{!-- <div class="px-5 mb-3 justify-content-center align-items-center"> --}}
+
+												{{!-- <div
+													class="code copy-link text-center mt-4 justify-content-center align-items-center">
+													--}}
+													<div class="text-center  text-white">
+														<span class="text-white">Referral code : </span>
+														<input style="margin-left:17rem" type="text"
+															class="copy-link-input text-success w-25  text-center form-control"
+															value="{{user.refferals}}" readonly>
+														<button type="button" class="btn btn-primary btn-sm"
+															class="copy-link-button">
+															<span class="material-icons">Click here to copy</span>
+														</button>
+
+
+													</div>
+													{{!--
+												</div> --}}
+
+												{{!-- </div> --}}
+
+										</div>
+
+
+									</div>
+
+
+
+								</div>
+							</div><!-- .End .tab-pane -->
+
+							<div class="tab-pane fade" id="tab-address" role="tabpanel"
+								aria-labelledby="tab-address-link">
+								<p>The following addresses will be used on the checkout page by default.</p>
+								<div class="">
+									<p class="">Click here for add new address</p>
+									{{!-- <button class="btn btn-outline-primary-2 btn-order btn-block mt-2"
+										data-bs-toggle="modal" data-bs-target="#addAddress">Add New Adresses</button>
+									--}}
+									<button type="button" class="btn btn-primary " data-bs-toggle="modal"
+										data-bs-target="#addAddress"> Add New Address
+									</button>
+								</div>
+
+
+
+								<div class="row">
+									{{#each address}}
+
+									<div class="col-lg-3">
+										<div class="card card-dashboard" style="height=100px;">
+											<div class="card-body">
+												<h3 class="card-title">Billing Address</h3><!-- End .card-title -->
+
+												<p class="text-white">{{this.firstName}} {{this.lastName}}<br>
+													{{this.address}}<br>
+													{{this.town}}<br>
+													{{this.state}}<br>
+													{{this.pincode}}<br>
+													{{this.phone}}<br>
+													{{this.email}}<br>
+													<a class="text-dark" href="#">Edit <i class="icon-edit"></i></a>
+												</p>
+											</div><!-- End .card-body -->
+										</div><!-- End .card-dashboard -->
+									</div><!-- End .col-lg-6 -->
+									{{/each}}
+
+								</div><!-- End .row -->
+
+
+
+
+
+							</div><!-- .End .tab-pane -->
+
+							<div class="tab-pane fade" id="tab-account" role="tabpanel"
+								aria-labelledby="tab-account-link">
+								<form action="/myaccount/change/details/{{user._id}}" method="post">
+									<div class="row">
+										<div class="col-md-6">
+											<label> Name *</label>
+											<input type="text" name="name" value="{{user.name}}" class="form-control"
+												required>
+											<small class="form-text">This will be how your name will be displayed in the
+												account
+												section and in reviews</small>
+
+
+
+											<label>Phone Number *</label>
+											<input type="text" name="phone" value="{{user.phone}}" class="form-control"
+												required>
+
+
+											<label>Email address *</label>
+											<input type="email" name="email" value="{{user.email}}" class="form-control" required>
+
+											<button type="submit" class="btn  btn-outline-primary-2">
+												<span>SAVE CHANGES</span>
+												<i class="icon-long-arrow-right"></i>
+											</button>
+										</div>
+								</form>
+
+
+								<form action="/myaccount/change/password/{{user._id}}" method="post">
+									<label class="mt-5">Current password (leave blank to leave unchanged)</label>
+									<input type="password" name="Password" class="form-control">
+
+									<label>New password (leave blank to leave unchanged)</label>
+									<div class="form-group">
+									<input type="password" name="password" id="password" class="form-control"
+										onkeyup="validPassowrd()" placeholder="Password" />
+									<span id="passwords" class="text-danger"></span>
+								</div><!-- End .form-group -->
+
+								<div class="form-group">
+									<input type="Password" id="cpassword" class="form-control" onkeyup="cPassowrd()"
+										placeholder="Retype Password" />
+									<span id="cpasswords" class="text-danger"></span>
+								</div><!-- End .form-group -->
+
+									<button type="submit" class="btn btn-outline-primary-2">
+										<span>SAVE CHANGES</span>
+										<i class="icon-long-arrow-right"></i>
+									</button>
+								</form>
+							</div><!-- .End .tab-pane -->
+						</div>
+					</div><!-- End .col-lg-9 -->
+				</div><!-- End .row -->
+			</div><!-- End .container -->
+		</div><!-- End .dashboard -->
+	</div><!-- End .page-content -->
+</main><!-- End .main -->
+
+
+
+
+
+
+<script>
+	document.querySelectorAll(".copy-link").forEach((copyLinkParent) => {
+		const inputField = copyLinkParent.querySelector(".copy-link-input");
+		const copyButton = copyLinkParent.querySelector(".copy-link-button");
+		const text = inputField.value;
+
+		inputField.addEventListener("focus", () => inputField.select());
+
+		copyButton.addEventListener("click", () => {
+			inputField.select();
+			navigator.clipboard.writeText(text);
+
+			inputField.value = "Copied!";
+			setTimeout(() => (inputField.value = text), 2000);
+		});
+	});
+
+</script>
+<script>
+	var errorEmail = document.getElementById('Email')
+var errorPassword = document.getElementById('passwords')
+var errorcPassword = document.getElementById('cpasswords')
+var errorPhonenumber = document.getElementById('Phonenumbers')
+function validateName() {
+    const name = document.getElementById('name').value;
+    if (name == "") {
+        errorName.innerHTML = 'Enter your Name'
+        return false
+    }
+    if (!name.match(/^[a-zA-Z ]*$/)) {
+        errorName.innerHTML = 'Number are not allowed'
+        return false
+    }
+     if (name.match(/^[ ]*$/)) {
+        errorName.innerHTML = 'enter a valid name'
+        return false
+    }
+    errorName.innerHTML = null
+    return true
+}
+function validEmail() {
+    const email = document.getElementById('email').value
+    if (email == "") {
+        errorEmail.innerHTML = "Enter your email address"
+        return false
+    }
+    if (!email.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)) {
+        errorEmail.innerHTML = 'enter a proper email address'
+        return false
+    }
+    errorEmail.innerHTML = null
+    return true
+}
+function validPassowrd() {
+    const psd = document.getElementById('password').value
+    if (psd == ""||psd.match(/^[ ]*$/)) {
+        errorPassword.innerHTML = "Enter a password"
+        return false
+    }
+    if (psd.length < 5) {
+       
+        errorPassword.innerHTML = "password should be more than five characters"
+        return false
+    }
+    errorPassword.innerHTML = null
+    return true
+}
+
+function cPassowrd() {
+    const psd = document.getElementById('password').value
+    const cpsd = document.getElementById('cpassword').value
+    if (cpsd == "") {
+        errorcPassword.innerHTML = "enter a password"
+        return false
+    }
+    if (cpsd !== psd) {
+       
+        errorcPassword.innerHTML = "password is not matching"
+        return false
+    }
+    errorcPassword.innerHTML = null
+    return true
+}
+
+ function validPhoneumber() {
+    const mob = document.getElementById('Phonenumber').value
+    if (mob == "") {
+        errorPhonenumber.innerHTML = "enter a phonenumber"
+        return false
+    }
+    if(!mob.match(/^[0-9]{10}$/)){
+        errorPhonenumber.innerHTML = "Enter valid phone number"
+        return false
+    }
+    errorPhonenumber.innerHTML = null
+    return true
+}
+
+    
+</script>
