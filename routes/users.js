@@ -7,7 +7,7 @@ var otpconfig = require('../config/otpconfig')
 const { Client } = require('twilio/lib/twiml/VoiceResponse');
 const userController = require('../controller/userController')
 var userMiddleware = require('../middlewares/userMiddleware');
-let client = require('twilio')(otpconfig.accountId, otpconfig.authToken)
+// let client = require('twilio')(otpconfig.accountId, otpconfig.authToken)
 var paypal = require('paypal-rest-sdk');
 const refferalHelper = require('../helpers/referralHelper')
 

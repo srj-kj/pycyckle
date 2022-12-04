@@ -5,14 +5,22 @@ const productHelper = require('../helpers/productHelper')
 const categoryHelper = require('../helpers/categoryHelper')
 const refferalHelper = require('../helpers/referralHelper')
 const addressHelper = require('../helpers/addressHelper');
+require('dotenv').config()
+
 
 
 
 const bannerHelper = require('../helpers/bannerHelper')
 const userHelper = require('../helpers/userHelper')
 const { Client } = require('twilio/lib/twiml/VoiceResponse');
-var otpconfig = require('../config/otpconfig')
-let client = require('twilio')(otpconfig.accountId, otpconfig.authToken)
+// var otpconfig = require('../config/otpconfig')
+// let client = require('twilio')(otpconfig.accountId, otpconfig.authToken)
+let ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID
+let YOUR_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN
+let YOUR_SERVICE_ID = process.env.TWILIO_SERVICE_ID
+var client = require('twilio')(ACCOUNT_SID, YOUR_AUTH_TOKEN)
+
+
 
 let usdTotal
 
@@ -171,7 +179,7 @@ module.exports = {
                     req.session.user = response.userPhoneFind
 
                     console.log('________________________________')
-                    client.verify.services(otpconfig.serviceId).verifications.create({
+                    client.verify.services(YOUR_SERVICE_ID).verifications.create({
                         to: `+91${req.session.phoneNumber}`,
                         channel: 'sms'
                     })
@@ -209,7 +217,7 @@ module.exports = {
         let userdetails = await userHelper.getUserByPhoneNumber(req.session.phoneNumber)
 
 
-        await client.verify.services(otpconfig.serviceId).verificationChecks.create({
+        await client.verify.services(YOUR_SERVICE_ID).verificationChecks.create({
             to: `+91${req.session.phoneNumber}`,
             code: otp
         }).then((response) => {

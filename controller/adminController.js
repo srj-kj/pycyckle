@@ -6,6 +6,8 @@ const adminHelper = require('../helpers/adminHelper')
 const categoryHelper = require('../helpers/categoryHelper');
 const chartHelper = require('../helpers/chartHelper');
 const bannerHelper = require('../helpers/bannerHelper');
+require('dotenv').config()
+
 
 let status = null
 var id;
@@ -39,10 +41,13 @@ module.exports = {
   },
   postLogin: (req, res) => {
     const credentials = {
-      userName: 'admin@gmail.com', password: 'admin@123'
+      email: process.env.email, password: process.env.password
     }
+      console.log(credentials.email);
+      console.log(credentials.password);
 
-    if (req.body.username == credentials.userName && req.body.password == credentials.password) {
+
+    if (req.body.username == credentials.email && req.body.password == credentials.password) {
       req.session.adminLogged = true;
       admin = req.session.adminLogged;
       res.redirect('/admin')
@@ -104,7 +109,7 @@ module.exports = {
 
     })
 
-
+    
 
   },
   deleteProduct: (req, res) => {
