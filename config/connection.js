@@ -14,7 +14,12 @@ module.exports.connect=function(done){
     const url ='mongodb+srv://surajkj:Suraj222317@cluster0.p1rcydn.mongodb.net/test'
     const dbname= 'picykle'
     mongoClient.connect(url,(err,data)=>{
-        if(err) return done(err)
+         if(err){ 
+            console.log(err);
+            return done(err)}
+            else{
+                console.log("cconnected");
+            }
         state.db=data.db(dbname)
     })
     done()
