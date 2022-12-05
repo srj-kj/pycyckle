@@ -60,9 +60,9 @@ app.use(function(req, res, next) {
 });
 
 
-app.get('/*',(req,res)=>{
-  res.render('user/404')
-})
+// app.get('/*',(req,res)=>{
+//   res.render('user/404')
+// })
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -72,7 +72,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('user/404');
 });
 
 module.exports = app;
+   
