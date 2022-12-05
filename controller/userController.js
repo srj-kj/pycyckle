@@ -482,8 +482,14 @@ module.exports = {
     },
     product: async (req, res) => {
         let id = req.params.id
+        let user= req.session.user
+        if(user){
+        var cartCount = await userHelper.getCartCount(user._id)
+        var wallet = await refferalHelper.getWallet(user._id)
+        }
+          
         let product = await productHelper.getProductDetails(id)
-        res.render('user/product', { userHeader: true, product })
+        res.render('user/product', { userHeader: true, product,user,wallet,cartCount })
     },
     verifyAmount: (req, res) => {
         console.log(req.body)
