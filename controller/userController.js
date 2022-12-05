@@ -390,7 +390,7 @@ module.exports = {
         let totalValue = await userHelper.getTotalAmount(req.session.user._id)
         console.log(req.body);
         console.log(products);
-        console.log(totalValue[0].total);
+        console.log(totalValue[0].total);   
         let grandTotal = totalValue[0].total
         let cart = await userHelper.couponChek(req.session.user._id)
         let coupon = await userHelper.findCoupon(cart.couponcode)
