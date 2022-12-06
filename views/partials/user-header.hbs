@@ -289,27 +289,27 @@
 
                         </li>
                         <li>
-                            <a href="product.html" class="sf-with-ul">Product</a>
+                            <a href="/shop" class="sf-with-ul">Product</a>
 
 
                         </li>
-                        <li>
+                        {{!-- <li>
                             <a href="#" class="sf-with-ul">Pages</a>
 
 
-                        </li>
+                        </li> --}}
                         <li>
                             {{#if user}}
                             <a href="/orders" class="sf-with-ul">Orders</a>
                             {{else}}
-                            <a href="" class="sf-with-ul">Elements</a>
+                            <a href="/login" class="sf-with-ul">Orders</a>
                             {{/if}}
                         </li>
                         <li>
                             {{#if user}}
-                            <a href="/myaccount" class="sf-with-ul"> My Account</a>
+                            <a href="/myaccount" class="sf-with-ul">Account</a>
                             {{else}}
-                            <a href="" class="sf-with-ul">Elements</a>
+                            <a href="/login" class="sf-with-ul">Account</a>
                             {{/if}}
                         </li>
                     </ul>
